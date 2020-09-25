@@ -46,7 +46,7 @@ kotlin {
                     dependsOn("build")
 
                     doLast {
-                        val deployDir = "$projectDir/site"
+                        val deployDir = "$projectDir/docs"
                         copy {
                             println("Copy dist files....")
                             from("$buildDir/distributions")
