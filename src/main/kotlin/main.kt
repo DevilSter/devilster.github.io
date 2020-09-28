@@ -6,7 +6,6 @@ fun main() {
     window.onload = {
         render(document.getElementById("root")) {
             app {
-                name = "Devil.Ster React Blog"
             }
         }
     }

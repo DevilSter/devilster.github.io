@@ -2,6 +2,7 @@ import java.time.LocalDateTime
 
 plugins {
     kotlin("js") version "1.4.10"
+    kotlin("plugin.serialization") version "1.4.10"
 }
 group = "pro.devil"
 version = "1.0-SNAPSHOT"
@@ -29,6 +30,7 @@ dependencies {
     implementation("org.jetbrains:kotlin-styled:$kotlinStyledVer")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVer")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.0-RC2") // JVM dependency
 }
 kotlin {
     js {
