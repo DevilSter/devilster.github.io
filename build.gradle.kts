@@ -6,6 +6,11 @@ plugins {
 group = "pro.devil"
 version = "1.0-SNAPSHOT"
 
+val kotlinPckVer = "16.13.1-pre.121-kotlin-1.4.10"
+val kotlinStyledVer = "5.2.0-pre.121-kotlin-1.4.10"
+val kotlinCoroutinesVer = "1.3.9"
+val kotlinHtmlJsVer = "0.7.2"
+
 repositories {
     mavenCentral()
     jcenter()
@@ -18,16 +23,22 @@ repositories {
 }
 dependencies {
     testImplementation(kotlin("test-js"))
-    implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.7.2")
-    implementation("org.jetbrains:kotlin-react:16.13.1-pre.110-kotlin-1.4.10")
-    implementation("org.jetbrains:kotlin-react-dom:16.13.1-pre.110-kotlin-1.4.10")
-    implementation("org.jetbrains:kotlin-styled:1.0.0-pre.110-kotlin-1.4.10")
+    implementation("org.jetbrains.kotlinx:kotlinx-html-js:$kotlinHtmlJsVer")
+    implementation("org.jetbrains:kotlin-react:$kotlinPckVer")
+    implementation("org.jetbrains:kotlin-react-dom:$kotlinPckVer")
+    implementation("org.jetbrains:kotlin-styled:$kotlinStyledVer")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVer")
 }
 kotlin {
     js {
         browser {
             binaries.executable()
+            runTask {
+                outputFileName = "main.bundle.js"
+            }
             webpackTask {
+                outputFileName = "main.bundle.js"
                 cssSupport.enabled = true
             }
             runTask {
