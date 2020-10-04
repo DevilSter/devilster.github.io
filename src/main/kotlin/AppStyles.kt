@@ -1,7 +1,6 @@
-import kotlinx.css.*
-import kotlinx.css.properties.*
+import kotlinx.css.marginLeft
+import kotlinx.css.px
 import styled.StyleSheet
-import styled.animation
 
 object AppStyles : StyleSheet("AppStyles", isStatic = false) {
 

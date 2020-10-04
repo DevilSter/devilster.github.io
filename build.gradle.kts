@@ -31,6 +31,9 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVer")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.0-RC2") // JVM dependency
+
+    implementation(npm("antd", "4.6.6"))
+    implementation(npm("@ant-design/icons", "4.2.2"))
 }
 kotlin {
     js {
