@@ -45,21 +45,6 @@
 //
 //    override fun RBuilder.render() {
 //        styledDiv {
-//            h1 {
-//                +"antD Version is $antdVersion"
-//            }
-//
-//            datePicker {}
-//
-////            uiButton("Primary Button") {
-////                type = "primary"
-////                styles {
-////                    marginLeft = 8
-////                }
-////                onClick = {
-////                    message.info("Some Message")
-////                }
-////            }
 //
 //            for (post in state.posts) {
 //                styledDiv {
