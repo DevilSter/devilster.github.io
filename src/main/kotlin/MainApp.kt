@@ -1,15 +1,5 @@
-import components.layout.HeaderNavLink
-import components.layout.appHeader
-import components.layout.appLayoutStyles
-import components.layout.appMain
-import components.post.appFeaturedPost
-import components.post.appPostOfTheDay
-import components.post.appPostStyles
 import domain.model.Post
-import materialUi.*
 import react.*
-import react.dom.main
-import styled.css
 import kotlin.js.Date
 
 external interface MainAppProps : RProps {
@@ -21,16 +11,6 @@ external interface MainAppState : RState {
 }
 
 private class MainApp : RComponent<MainAppProps, MainAppState>() {
-    val sectionsGlobal = listOf(
-        HeaderNavLink("Technology", "#"),
-        HeaderNavLink("Design", "#"),
-        HeaderNavLink("Culture", "#"),
-        HeaderNavLink("Business", "#"),
-        HeaderNavLink("Politics", "#"),
-        HeaderNavLink("Opinion", "#"),
-        HeaderNavLink("Science", "#"),
-    )
-
     val postOfTheDay = Post(
         id = 1,
         userId = 1,
@@ -45,53 +25,7 @@ private class MainApp : RComponent<MainAppProps, MainAppState>() {
 
     override fun RBuilder.render() {
         Fragment {
-            uiCssBaseline()
 
-            @Suppress("UnsafeCastFromDynamic")
-            val themeOptions: UiThemeOptions = js("({palette: { type: 'placeholder', primary: {main: 'placeholder'}}})")
-            themeOptions.palette?.type = state.themeColor
-            themeOptions.palette?.primary.main = Colors.Blue.shade500.toString()
-
-            uiThemeProvider(createMaterialUiTheme(themeOptions)) {
-
-                themeContext.Consumer { theme ->
-                    val themedStyles = appLayoutStyles(theme)
-
-                    uiContainer {
-                        appHeader {
-                            attrs {
-                                title = "Blog"
-                                sections = sectionsGlobal
-                            }
-                        }
-                        main {
-                            appPostOfTheDay(inPost = postOfTheDay) {}
-
-                            uiGridContainer(
-                                spacing = UiGridSpacing.spacing4
-                            ) {
-                                featuredPosts.map { post ->
-                                    appFeaturedPost(post) {
-                                        attrs {
-                                            key = post.id.toString()
-                                        }
-                                    }
-                                }
-                            }
-
-                            uiGridContainer(
-                                spacing = UiGridSpacing.spacing5
-                            ) {
-                                css(themedStyles.mainGrid)
-
-                                appMain {
-
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 }

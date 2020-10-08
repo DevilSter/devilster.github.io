@@ -31,11 +31,6 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVer")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.0-RC2") // JVM dependency
-
-    implementation(npm("@material-ui/core", "^4.11.0"))
-    implementation(npm("@material-ui/icons", "^4.9.1"))
-
-    implementation(npm("markdown-to-jsx", "^7.0.1"))
 }
 kotlin {
     js {
