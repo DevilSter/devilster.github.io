@@ -31,9 +31,14 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVer")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.0-RC2") // JVM dependency
+
+    implementation(npm("jquery", "3.5.1"))
+    implementation(npm("popper.js", "^1.16.1"))
+    implementation(npm("bootstrap", "4.5.2"))
+
 }
 kotlin {
-    js {
+    js(IR) {
         browser {
             binaries.executable()
             runTask {
